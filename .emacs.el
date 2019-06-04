@@ -1,4 +1,4 @@
-;;; .emacs --- -*- lexical-binding: t; -*-
+;;; .emacs.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;; ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ;;
@@ -20,7 +20,7 @@
 ;;
 ;; INSTALLATION
 ;;
-;; Install this file as ~/.emacs . Next time you start Emacs it will create a
+;; Install this file as ~/.emacs.el . Next time you start Emacs it will create a
 ;; ~/.emacs-profiles.el , with a single "default" profile
 ;;
 ;;     (("default" . ((user-emacs-directory . "~/.emacs.d"))))
@@ -99,7 +99,7 @@
     ;; Start the actual initialization
     (load init-file)
 
-    ;; Prevent customize from changing ~/.emacs (this file), but if init.el has
+    ;; Prevent customize from changing ~/.emacs.el (this file), but if init.el has
     ;; set a value for custom-file then don't touch it.
     (when (not custom-file)
       (setq custom-file custom-file-)
@@ -135,5 +135,5 @@
 ;; default profile.
 (chemacs-check-command-line-args command-line-args)
 
-(provide '.emacs)
-;;; .emacs ends here
+(provide '.emacs.el)
+;;; .emacs.el ends here

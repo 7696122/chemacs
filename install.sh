@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function main() {
-    if [[ -L "$HOME/.emacs" ]]; then
+    if [[ -L "$HOME/.emacs.el" ]]; then
         check_existing_symlink
     else
         create_symlink_if_possible
@@ -9,21 +9,21 @@ function main() {
 }
 
 function check_existing_symlink() {
-    local target=$(readlink -f $HOME/.emacs)
+    local target=$(readlink -f $HOME/.emacs.el)
 
-    if [[ "$target" != "`chemacs_home`.emacs" ]]; then
-        warn "~/.emacs symlink points elsewhere -> $target"
+    if [[ "$target" != "`chemacs_home`.emacs.el" ]]; then
+        warn "~/.emacs.el symlink points elsewhere -> $target"
     else
         ok "chemacs already linked, you're all good."
     fi
 }
 
 function create_symlink_if_possible() {
-    if [[ -e "$HOME/.emacs" ]]; then
-        warn "chemacs can't be installed, ~/.emacs is in the way"
+    if [[ -e "$HOME/.emacs.el" ]]; then
+        warn "chemacs can't be installed, ~/.emacs.el is in the way"
     else
-        ok "Creating symlink ~/.emacs -> `chemacs_home`.emacs"
-        ln -s "`chemacs_home`.emacs" "$HOME"
+        ok "Creating symlink ~/.emacs.el -> `chemacs_home`.emacs.el"
+        ln -s "`chemacs_home`.emacs.el" "$HOME"
     fi
 }
 
